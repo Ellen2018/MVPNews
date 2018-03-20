@@ -24,11 +24,9 @@ import com.ura.ellen.mvpnews.adapter.recyclerview.NewsZhiBoAdapter;
 import com.ura.ellen.mvpnews.ui.Main.Presenter.MainPresenter;
 import com.ura.ellen.mvpnews.ui.Main.View.MainActivity;
 import com.ura.ellen.mvpnews.utils.JsonUtils;
-import com.ura.ellen.mvpnews.utils.NetUtils;
-import com.ura.ellen.mvpnews.utils.SQLiteUtils.NewsSQLiteUtils;
+import com.ura.ellen.mvpnews.utils.NetUtils.NetUtils;
 import com.ura.ellen.mvpnews.utils.ToastUtil;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;

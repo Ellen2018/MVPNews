@@ -6,7 +6,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -16,7 +15,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 
-import com.google.gson.Gson;
 import com.jwenfeng.library.pulltorefresh.BaseRefreshListener;
 import com.jwenfeng.library.pulltorefresh.PullToRefreshLayout;
 import com.ura.ellen.baselibrary.ui.fragment.BaseFragment;
@@ -27,12 +25,9 @@ import com.ura.ellen.mvpnews.adapter.recyclerview.NewsAdapter2;
 import com.ura.ellen.mvpnews.ui.Main.Presenter.MainPresenter;
 import com.ura.ellen.mvpnews.ui.Main.View.MainActivity;
 import com.ura.ellen.mvpnews.utils.JsonUtils;
-import com.ura.ellen.mvpnews.utils.NetUtils;
-import com.ura.ellen.mvpnews.utils.SQLiteUtils.NewsSQLiteUtils;
-import com.ura.ellen.mvpnews.utils.SharedPreferencesUtil;
+import com.ura.ellen.mvpnews.utils.NetUtils.NetUtils;
 import com.ura.ellen.mvpnews.utils.ToastUtil;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;

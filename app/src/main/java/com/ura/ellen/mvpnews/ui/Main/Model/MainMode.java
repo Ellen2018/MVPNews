@@ -26,7 +26,8 @@ import com.ura.ellen.mvpnews.ui.Main.Presenter.MainPresenter;
 import com.ura.ellen.mvpnews.utils.ContentProviderUtils;
 import com.ura.ellen.mvpnews.utils.GreenDaoUtils.TabClassGreenUtils;
 import com.ura.ellen.mvpnews.utils.GreenDaoUtils.VideoGreenDaoUtils;
-import com.ura.ellen.mvpnews.utils.NetUtils;
+import com.ura.ellen.mvpnews.utils.NetUtils.MyOkHttpUtils;
+import com.ura.ellen.mvpnews.utils.NetUtils.NetUtils;
 import com.ura.ellen.mvpnews.utils.SQLiteUtils.NewsSQLiteUtils;
 import com.ura.ellen.mvpnews.utils.SharedPreferencesUtil;
 
@@ -143,24 +144,9 @@ public class MainMode extends BaseMode {
      * @param url
      * @return
      */
-    public String requestNet(String url){
+    public String requestNet(String url) throws IOException {
 
-        String str = null;
-        if(NetUtils.isNetCanUse(context)) {
-
-            OkHttpClient okHttpClient = new OkHttpClient();
-            Request request = new Request.Builder()
-                    .url(url)
-                    .build();
-            Call call = okHttpClient.newCall(request);
-            try {
-                Response response = call.execute();
-                str = response.body().string();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        return str;
+        return MyOkHttpUtils.getInstance().getJson(url);
     }
 
     /**

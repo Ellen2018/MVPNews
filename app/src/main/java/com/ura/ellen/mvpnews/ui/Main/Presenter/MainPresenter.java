@@ -16,8 +16,10 @@ import com.ura.ellen.mvpnews.ui.Main.Model.MainMode;
 import com.ura.ellen.mvpnews.ui.Main.View.MainView;
 import com.ura.ellen.mvpnews.utils.ToastUtil;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeoutException;
 
 import javax.inject.Inject;
 
@@ -151,7 +153,15 @@ public class MainPresenter extends BasePresenter<MainView,MainMode> {
 
             @Override
             public void run() {
-                String netDataJson = mBaseMode.requestNet(url);
+                String netDataJson = null;
+                try {
+                    netDataJson = mBaseMode.requestNet(url);
+                } catch (IOException e) {
+                    if(e.getClass().equals(TimeoutException.class)){
+                        //网络超时异常
+                        netDataJson = null;
+                    }
+                }
                 mBaseView.upDateVideoData(netDataJson,what);
 
             }
@@ -211,8 +221,15 @@ public class MainPresenter extends BasePresenter<MainView,MainMode> {
             public void run() {
 
                 //是否本地已经保存了？
+                String netDataJson = null;
 
-                String netDataJson = mBaseMode.requestNet(NewsPagerTab.NEWS_URL);
+                try {
+                    netDataJson = mBaseMode.requestNet(NewsPagerTab.NEWS_URL);
+                } catch (IOException e) {
+                    if(e.getClass().equals(TimeoutException.class)){
+                        netDataJson = null;
+                    }
+                }
                 mBaseView.upDateNewsPagerTab(netDataJson);
             }
 
@@ -235,9 +252,15 @@ public class MainPresenter extends BasePresenter<MainView,MainMode> {
             @Override
             public void run() {
 
+                String netDataJson = null;
 
-
-                String netDataJson = mBaseMode.requestNet(url);
+                try {
+                    netDataJson = mBaseMode.requestNet(url);
+                } catch (IOException e) {
+                    if(e.getClass().equals(TimeoutException.class)){
+                        netDataJson = null;
+                    }
+                }
                 mBaseView.upDateNewsData(p,netDataJson,what);
 
             }
