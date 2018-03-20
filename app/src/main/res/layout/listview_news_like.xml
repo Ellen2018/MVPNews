@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+
+
+    <LinearLayout
+        android:id="@+id/ll_listview_news"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/touch_bg"
+        android:padding="5dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="6.66"
+            android:paddingTop="8dp"
+            android:orientation="vertical"
+            android:layout_height="100dp">
+
+            <TextView
+                android:text="新闻标题"
+                android:textSize="18sp"
+                android:paddingLeft="5dp"
+                android:id="@+id/tv_listview_news_title"
+                android:layout_width="match_parent"
+                android:layout_weight="8"
+                android:layout_height="0dp"
+                />
+
+            <TextView
+                android:text="新闻时间"
+                android:paddingLeft="5dp"
+                android:id="@+id/tv_listview_news_time"
+                android:layout_width="match_parent"
+                android:layout_weight="2"
+                android:layout_height="0dp"
+                android:gravity="bottom|left"
+                android:paddingRight="5dp"
+                android:paddingBottom="5dp"
+                />
+
+
+
+        </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_listview_news_image"
+        android:layout_width="0dp"
+        android:layout_weight="3.33"
+        android:padding="8dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/news_moren"
+        android:layout_height="100dp" />
+
+
+    </LinearLayout>
+
+
+
+    <TextView
+        android:id="@+id/tv_listview_news_fengexian"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#8a8a8a"
+        />
+
+
+</LinearLayout>

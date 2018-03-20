@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:padding="3dp"
+    android:layout_height="100dp">
+
+  <RelativeLayout
+      android:id="@+id/rl_net_video"
+      android:layout_width="120dp"
+      android:layout_alignParentLeft="true"
+      android:layout_height="80dp">
+
+      <ImageView
+          android:scaleType="fitXY"
+          android:src="@drawable/video_default"
+          android:id="@+id/iv_net_icon"
+          android:layout_width="match_parent"
+          android:layout_height="80dp" />
+
+      <ImageView
+          android:src="@drawable/center_collect_play"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentBottom="true"
+          android:paddingRight="8dp"
+          android:layout_alignParentRight="true"
+          android:paddingBottom="10dp"
+          />
+
+
+  </RelativeLayout>
+
+    <LinearLayout
+        android:layout_toRightOf="@id/rl_net_video"
+        android:layout_width="wrap_content"
+        android:paddingLeft="8dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_net_video_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="视频标题"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
+
+        <TextView
+            android:id="@+id/tv_net_video_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="视频的名字"
+            android:textSize="15sp"
+            android:textColor="#55000000"
+            />
+
+
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

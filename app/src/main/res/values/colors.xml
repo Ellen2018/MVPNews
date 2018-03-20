@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="super_light_grey">#CCCCCC</color>
+    <color name="line_grey">#999999</color>
+    <color name="yehua_color">#666666</color>
+    <color name="tab_default_color">#8A8A8A</color>
+    <color name="tab_selector_color">#8A8A8A</color>
+
+</resources>

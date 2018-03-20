@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="50dp">
+
+        <ImageView
+            android:id="@+id/iv_userlikeactivity_back"
+            android:layout_width="?actionBarSize"
+            android:src="@drawable/back"
+            android:padding="10dp"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="收藏"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:layout_height="match_parent" />
+
+        <!--<TextView-->
+            <!--android:layout_width="?actionBarSize"-->
+            <!--android:text="编辑"-->
+            <!--android:gravity="center"-->
+            <!--android:textSize="16sp"-->
+            <!--android:layout_height="match_parent" />-->
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#666666"
+        />
+
+
+    <ListView
+        android:id="@+id/lv_userlikeactivity"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <ImageView
+            android:id="@+id/iv_looknewsactivity_back"
+            android:layout_width="?actionBarSize"
+            android:src="@drawable/back"
+            android:padding="10dp"
+            android:background="@drawable/touch_bg"
+            android:layout_alignParentLeft="true"
+            android:layout_height="?actionBarSize" />
+
+
+
+
+        <ImageView
+            android:id="@+id/iv_looknewsactivity_fenxiang"
+            android:layout_width="?actionBarSize"
+            android:src="@drawable/fenxiang"
+            android:background="@drawable/touch_bg"
+            android:layout_alignParentRight="true"
+            android:padding="10dp"
+
+            android:layout_height="?actionBarSize" />
+
+        <ImageView
+            android:id="@+id/iv_looknewsactivity_like"
+            android:layout_width="?actionBarSize"
+            android:src="@drawable/nolike"
+            android:background="@drawable/touch_bg"
+            android:layout_toLeftOf="@id/iv_looknewsactivity_fenxiang"
+            android:padding="10dp"
+            android:layout_height="?actionBarSize" />
+        
+    </RelativeLayout>
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#666666"
+        />
+
+    <WebView
+        android:id="@+id/wv_looknewsactivity"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        />
+
+
+
+
+
+</LinearLayout>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+    <com.jwenfeng.library.pulltorefresh.PullToRefreshLayout
+        android:id="@+id/ptrl_viewpagerfragment_pager1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/lv_fragment_pager1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+
+    </com.jwenfeng.library.pulltorefresh.PullToRefreshLayout>
+
+
+    <ProgressBar
+        android:id="@+id/pb_viewpagerfragment_pager1"
+        android:layout_width="50dp"
+        android:layout_centerInParent="true"
+        android:layout_height="50dp" />
+
+    <ImageView
+        android:id="@+id/iv_viewpagerfragment_top"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/to_top"
+        android:layout_marginRight="25dp"
+        android:visibility="gone"
+        android:layout_marginBottom="25dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+       />
+
+
+
+</RelativeLayout>

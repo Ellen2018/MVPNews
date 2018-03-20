@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+    <tab
+        id="@+id/tab_news"
+        icon="@drawable/rb_news"
+
+        title="首页" />
+    <tab
+        id="@+id/tab_video"
+        icon="@drawable/rb_tv"
+
+        title="视频" />
+
+    <tab
+        id="@+id/tab_local"
+        icon="@drawable/rb_discover"
+
+        title="本地" />
+
+    <tab
+        id="@+id/tab_user"
+        icon="@drawable/rb_user"
+
+        title="我" />
+</tabs>
+
+    <!--barColorWhenSelected="#ffffff"-->

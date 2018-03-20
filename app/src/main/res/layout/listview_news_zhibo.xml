@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+
+    <ImageView
+        android:id="@+id/iv_listview_news_zhibo"
+        android:layout_width="match_parent"
+        android:src="@drawable/news_moren"
+        android:scaleType="fitXY"
+        android:layout_height="200dp" />
+
+   <ImageView
+       android:layout_width="match_parent"
+       android:layout_height="200dp"
+       android:background="#35000000"
+       />
+
+    <TextView
+        android:id="@+id/tv_listview_news_zhibo"
+        android:layout_width="match_parent"
+        android:text="直播标题名字"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:textSize="25sp"
+        android:textColor="#ffffff"
+        android:layout_alignParentBottom="true"
+        android:layout_height="wrap_content" />
+
+
+
+    <ImageView
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:src="@drawable/hotlist_video"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>

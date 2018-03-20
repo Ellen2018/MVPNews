@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:minHeight="200dp"
+    android:id="@+id/rl_listview_video_item"
+    android:layout_height="match_parent">
+
+
+
+    <com.ura.ellen.mvpnews.MyView.MyVideoView
+        android:id="@+id/vv_listview_video_item"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="200dp" />
+
+
+    <ImageView
+        android:id="@+id/iv_listview_video_item_imager"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="fitXY"
+        />
+
+
+
+    <TextView
+        android:text="视频标题"
+        android:textSize="18sp"
+        android:id="@+id/tv_listview_video_item"
+        android:layout_width="match_parent"
+        android:textColor="@color/white"
+        android:layout_height="wrap_content" />
+
+    <ImageView
+        android:id="@+id/iv_listview_item_playandpause"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/video_pause"
+        android:layout_centerInParent="true"/>
+
+    <ProgressBar
+        android:id="@+id/pb_listview_video_item"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        />
+
+    <LinearLayout
+        android:id="@+id/ll_listview_item_contro"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:paddingBottom="3dp"
+        android:visibility="gone"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_listview_video_item_starttime"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:text="00:01"
+            />
+
+        <SeekBar
+            android:id="@+id/sb_listview_video_item"
+            android:layout_width="0dp"
+            android:layout_weight="8.5"
+            android:minHeight="3dp"
+            android:maxHeight="3dp"
+            android:progress="0"
+            android:progressDrawable="@drawable/progress_horizontal"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/tv_listview_video_item_alltime"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:text="02:03"
+            />
+
+        <ImageView
+            android:id="@+id/iv_listview_video_item_quanping"
+            android:layout_width="0dp"
+            android:layout_weight="1.5"
+            android:src="@drawable/video_quanping"
+            android:padding="5dp"
+            android:layout_height="match_parent" />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll_listview_item_fenxiang"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:src="@drawable/video_replay"
+            android:layout_height="50dp" />
+
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>
