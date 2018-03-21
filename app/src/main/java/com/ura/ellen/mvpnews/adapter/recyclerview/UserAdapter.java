@@ -1,5 +1,6 @@
 package com.ura.ellen.mvpnews.adapter.recyclerview;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
@@ -16,6 +17,7 @@ import com.squareup.picasso.Picasso;
 import com.ura.ellen.mvpnews.Mode.News;
 import com.ura.ellen.mvpnews.R;
 import com.ura.ellen.mvpnews.ui.Main.Presenter.MainPresenter;
+import com.ura.ellen.mvpnews.ui.UserHistory.HistoryActivity;
 import com.ura.ellen.mvpnews.ui.UserLike.UserLikeActivity;
 import com.ura.ellen.mvpnews.utils.ActivityUtils.IntentActivityUtils;
 import com.ura.ellen.mvpnews.utils.ColorUtils;
@@ -43,10 +45,12 @@ public class UserAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private int yeHuaColor = Color.WHITE;
 
     private  boolean isYeHua = false;
+    private Activity activity;
 
-    public UserAdapter(Context context,MainPresenter mainPresenter){
+    public UserAdapter(Activity activity,Context context, MainPresenter mainPresenter){
         this.context = context;
         this.mainPresenter = mainPresenter;
+        this.activity = activity;
 
         //设置头布局
         setMyHeaderView();
@@ -188,11 +192,18 @@ public class UserAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             like.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    IntentActivityUtils.jumpToNextActivity(context, UserLikeActivity.class);
+                    IntentActivityUtils.jumpToNextActivity(activity,context, UserLikeActivity.class);
                 }
             });
 
             lishi = headView.findViewById(R.id.tv_user_lishi);
+
+            lishi.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    IntentActivityUtils.jumpToNextActivity(activity,context, HistoryActivity.class);
+                }
+            });
 
 
         }

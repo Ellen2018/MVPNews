@@ -101,6 +101,8 @@ public class NewsZhiBoViewPagerFragment extends BaseFragment {
     public void upDateFromNetLaodMore() {
 
 
+        n2 = n2 + fenYeNumber;
+
         String url = this.url.replace("n2=20","n2="+n2);
         mainPresenter.requestNewsData(url,p,USER_LOADMORE_UP);
 

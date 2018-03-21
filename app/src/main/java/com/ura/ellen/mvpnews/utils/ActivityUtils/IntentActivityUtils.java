@@ -16,9 +16,10 @@ public class IntentActivityUtils {
 
 
 
-    public static void jumpToNextActivity(Context context,Class class1){
+    public static void jumpToNextActivity(Activity activity,Context context,Class class1){
         Intent intent = new Intent(context,class1);
         context.startActivity(intent);
+        activity.overridePendingTransition(R.anim.in_from_right, R.anim.out_to_left);
     }
 
 

@@ -49,6 +49,12 @@
 
         </activity>
 
+        <activity android:name=".ui.UserHistory.HistoryActivity"
+            android:launchMode="singleTask"
+            android:theme="@style/AppTheme">
+
+        </activity>
+
 
 
 

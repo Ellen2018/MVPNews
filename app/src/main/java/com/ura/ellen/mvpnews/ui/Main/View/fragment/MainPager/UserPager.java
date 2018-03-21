@@ -33,7 +33,7 @@ public class UserPager extends BasePager {
         LinearLayoutManager layoutmanager = new LinearLayoutManager(mainPresenter.getContenxt());
         rlUser.setLayoutManager(layoutmanager);
 
-        rlUser.setAdapter(userAdapter = new UserAdapter(mainPresenter.getContenxt(),mainPresenter));
+        rlUser.setAdapter(userAdapter = new UserAdapter(mainPresenter.getActivity(),mainPresenter.getContenxt(),mainPresenter));
 
         return view;
     }

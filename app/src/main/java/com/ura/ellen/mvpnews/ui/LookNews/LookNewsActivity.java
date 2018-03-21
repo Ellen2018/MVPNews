@@ -52,12 +52,12 @@ public class LookNewsActivity extends SwipeBackActivity {
         if(isLike){
             //取消喜欢
             ivLooknewsactivityLike.setImageResource(R.drawable.nolike);
-            NewsSQLiteUtils.deleteUserLikeNewsData(context,url);
+            NewsSQLiteUtils.deleteUserLikeNewsData(context,NewsSQLiteUtils.SQL_LIKE,url);
             isLike = false;
         }else{
             //添加喜欢
             ivLooknewsactivityLike.setImageResource(R.drawable.like);
-            NewsSQLiteUtils.saveUserLikeNewsData(context,title,date,imagePath,url);
+            NewsSQLiteUtils.saveUserLikeNewsData(context,NewsSQLiteUtils.SQL_LIKE,title,date,imagePath,url);
             isLike = true;
 
         }
@@ -100,6 +100,7 @@ public class LookNewsActivity extends SwipeBackActivity {
         imagePath = intent.getStringExtra(IntentActivityUtils.NEWS_IMAGEPATH);
         url = intent.getStringExtra(IntentActivityUtils.NEWS_URL);
 
+        NewsSQLiteUtils.saveUserLikeNewsData(context,NewsSQLiteUtils.SQL_HISTORY,title,date,imagePath,url);
 
         if(NewsSQLiteUtils.isUserLikeThisNewsData(context,url)){
             ivLooknewsactivityLike.setImageResource(R.drawable.like);

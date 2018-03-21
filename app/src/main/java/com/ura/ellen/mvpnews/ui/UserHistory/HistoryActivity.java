@@ -1,4 +1,4 @@
-package com.ura.ellen.mvpnews.ui.UserLike;
+package com.ura.ellen.mvpnews.ui.UserHistory;
 
 import android.app.Activity;
 import android.content.Context;
@@ -11,15 +11,13 @@ import com.ura.ellen.mvpnews.R;
 import com.ura.ellen.mvpnews.adapter.listview.NewsLikeAdapter;
 import com.ura.ellen.mvpnews.utils.SQLiteUtils.NewsSQLiteUtils;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class UserLikeActivity extends Activity {
-
+public class HistoryActivity extends Activity {
 
     @BindView(R.id.iv_userlikeactivity_back)
     ImageView ivUserlikeactivityBack;
@@ -31,11 +29,11 @@ public class UserLikeActivity extends Activity {
         finish();
     }
 
-    private Context context;
-    private Activity activity;
-
     private NewsLikeAdapter newsLikeAdapter;
     private List<String[]> arrayList;
+
+    private Activity activity;
+    private Context context;
 
 
     @Override
@@ -47,15 +45,15 @@ public class UserLikeActivity extends Activity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_like);
+        setContentView(R.layout.activity_history);
         ButterKnife.bind(this);
-        context = this;
+
         activity = this;
-        arrayList = NewsSQLiteUtils.getUserLikeNewsData(this,NewsSQLiteUtils.SQL_LIKE);
+        context = this;
+        arrayList = NewsSQLiteUtils.getUserHistoryNewsData(this,NewsSQLiteUtils.SQL_HISTORY);
 
         newsLikeAdapter = new NewsLikeAdapter(activity,context,arrayList);
         lvUserlikeactivity.setAdapter(newsLikeAdapter);
-
 
     }
 }

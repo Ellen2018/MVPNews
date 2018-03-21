@@ -15,6 +15,9 @@ import java.util.List;
 public class NewsSQLiteUtils extends SQLiteOpenHelper{
 
     public static final String SQL_NAME = "MVPNews";
+    public static final String SQL_LIKE = "newslike";
+    public static final String SQL_HISTORY = "newshistory";
+
 
     public NewsSQLiteUtils(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
@@ -35,6 +38,17 @@ public class NewsSQLiteUtils extends SQLiteOpenHelper{
     private static String getCreateSQLString_NewsLike(){
 
         return "create table newslike ("
+                + "id integer primary key autoincrement,"
+                + "title text,"
+                + "date text,"
+                + "imagepath text,"
+                + "url text)";
+
+    }
+
+    private static String getCreateSQLString_NewsHistory(){
+
+        return "create table newshistory ("
                 + "id integer primary key autoincrement,"
                 + "title text,"
                 + "date text,"
@@ -91,7 +105,7 @@ public class NewsSQLiteUtils extends SQLiteOpenHelper{
     }
 
 
-    public static void saveUserLikeNewsData(Context context,String title,String date,String imagePath,String url){
+    public static void saveUserLikeNewsData(Context context,String tableName,String title,String date,String imagePath,String url){
 
         NewsSQLiteUtils sqlUtil = new NewsSQLiteUtils(context,SQL_NAME,null,1);
 
@@ -103,13 +117,13 @@ public class NewsSQLiteUtils extends SQLiteOpenHelper{
             contentValues.put("date",date);
             contentValues.put("imagepath",imagePath);
             contentValues.put("url",url);
-            db.insert("newslike",null,contentValues);
+            db.insert(tableName,null,contentValues);
             contentValues.clear();
             db.close();
     }
 
 
-    public static void deleteUserLikeNewsData(Context context,String url){
+    public static void deleteUserLikeNewsData(Context context,String tableName,String url){
 
         NewsSQLiteUtils sqlUtil = new NewsSQLiteUtils(context,SQL_NAME,null,1);
 
@@ -118,7 +132,7 @@ public class NewsSQLiteUtils extends SQLiteOpenHelper{
 
         ContentValues contentValues = new ContentValues();
         contentValues.put("url",url);
-        db.delete("newslike","url=?",new String[]{url});
+        db.delete(tableName,"url=?",new String[]{url});
         contentValues.clear();
         db.close();
     }
@@ -152,7 +166,19 @@ public class NewsSQLiteUtils extends SQLiteOpenHelper{
         return  isLike;
     }
 
-    public static List<String[]> getUserLikeNewsData(Context context){
+    public static List<String[]> getUserHistoryNewsData(Context context,String tableName){
+        List<String[]> lists = getUserLikeNewsData(context,tableName);
+        List<String[]> lists1 = new ArrayList<>();
+
+        for(int i=lists.size()-1;i>=(lists.size()-100>=0?lists.size()-100:0);i--){
+            lists1.add(lists.get(i));
+        }
+
+
+        return lists1;
+    }
+
+    public static List<String[]> getUserLikeNewsData(Context context,String tableName){
 
         List<String[]> lists = new ArrayList<>();
 
@@ -161,7 +187,7 @@ public class NewsSQLiteUtils extends SQLiteOpenHelper{
 
         SQLiteDatabase db = sqlUtil.getWritableDatabase();
 
-        Cursor cursor = db.query("newslike",null,null,null,null,null,null);
+        Cursor cursor = db.query(tableName,null,null,null,null,null,null);
 
         if(cursor.moveToFirst()){
             do{
@@ -311,6 +337,7 @@ public class NewsSQLiteUtils extends SQLiteOpenHelper{
         }
 
         sqLiteDatabase.execSQL(getCreateSQLString_NewsLike());
+        sqLiteDatabase.execSQL(getCreateSQLString_NewsHistory());
 
     }
 
