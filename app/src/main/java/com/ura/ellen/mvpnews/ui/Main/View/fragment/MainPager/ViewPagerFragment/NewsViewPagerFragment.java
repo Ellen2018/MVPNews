@@ -199,7 +199,7 @@ public class NewsViewPagerFragment extends BaseFragment {
 
 
                 if(message.arg1>0) {
-                    mainPresenter.saveNewsDataToLocal(getActivity(),itemListBeans,bigImgBeans,p);
+                    mainPresenter.saveNewsDataToLocal(getActivity(),dataBean.getItemList(),bigImgBeans,p);
                 }
 
 
