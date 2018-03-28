@@ -10,5 +10,7 @@
     <color name="yehua_color">#666666</color>
     <color name="tab_default_color">#8A8A8A</color>
     <color name="tab_selector_color">#8A8A8A</color>
+    <color name="red">#FF3333</color>
+    <color name="blue">#3333FF</color>
 
 </resources>

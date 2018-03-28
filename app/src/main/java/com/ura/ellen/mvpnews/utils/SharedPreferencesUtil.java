@@ -20,6 +20,7 @@ public class SharedPreferencesUtil {
 
     public static String sharedPreference_appName = "MVPNews";
     public static String sharedPreference_isYeHua = "isYeHua";
+    public static String sharedPreference_first = "isUserFirst";
 
     public static <T>   void  saveData(Context context, String fileName, String biaoJi, T t){
 

@@ -292,7 +292,7 @@ public class MainMode extends BaseMode {
 
             for(int i=0;i<tabClasses.size();i++){
                 switch (i){
-                    case 15:
+                    case 16:
                     case 1:
                         viewpagerFragmentsPager1.add(new NewsWebViewpagerFragment(tabClasses.get(i).getUrl(),i));
                         break;

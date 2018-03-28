@@ -19,8 +19,6 @@ public class TitleBar extends LinearLayout implements View.OnClickListener{
 
     private View textViewSerach;
     //private View imageViewGame;
-    private View imageViewHistory;
-
     private Context context;
 
 
@@ -46,10 +44,10 @@ public class TitleBar extends LinearLayout implements View.OnClickListener{
         super.onFinishInflate();
         textViewSerach = getChildAt(1);
         //imageViewGame = getChildAt(2);
-        imageViewHistory = getChildAt(2);
+
         textViewSerach.setOnClickListener(this);
         //imageViewGame.setOnClickListener(this);
-        imageViewHistory.setOnClickListener(this);
+
     }
 
     @Override
@@ -60,20 +58,6 @@ public class TitleBar extends LinearLayout implements View.OnClickListener{
             case R.id.tv_titlebar_serach:
 
                 ToastUtil.toast(context,"搜索");
-
-                break;
-
-//            case R.id.rl_titlebar_game:
-//
-//                Log.e("a","游戏");
-//                ToastUtil.toast(context,"游戏");
-//
-//                break;
-
-            case R.id.iv_titlebar_history:
-
-
-                ToastUtil.toast(context,"时间链");
 
                 break;
 

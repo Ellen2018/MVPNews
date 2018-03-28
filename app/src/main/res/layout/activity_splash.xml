@@ -5,6 +5,7 @@
     android:layout_height="match_parent">
 
     <ImageView
+        android:src="@drawable/guide_pager3"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         />
@@ -14,11 +15,11 @@
         android:id="@+id/bt_splashactivity_splashbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="跳过5S"
+        android:text="跳过5"
+        android:background="@null"
+        android:textColor="@color/white"
         android:layout_alignParentRight="true"
         />
-
-
 
 
 </RelativeLayout>

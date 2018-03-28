@@ -44,12 +44,16 @@ public class NewsZhiBoAdapter extends RecyclerView.Adapter<NewsZhiBoAdapter.View
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
 
-        //加载图片：Glide框架
-        Picasso.with(context)
-                .load(itemListBeans.get(position).getItemImage().getImgUrl1())
-                .placeholder(R.drawable.news_moren)
-                .error(R.drawable.news_moren)
-                .into( holder.imageView);
+        String imagePath = itemListBeans.get(position).getItemImage().getImgUrl1();
+
+        if(imagePath!=null&&imagePath.length()>0) {
+            //加载图片：Glide框架
+            Picasso.with(context)
+                    .load(imagePath)
+                    .placeholder(R.drawable.news_moren)
+                    .error(R.drawable.news_moren)
+                    .into(holder.imageView);
+        }
 
 
         holder.textView.setText(itemListBeans.get(position).getItemTitle());

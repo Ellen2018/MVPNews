@@ -30,14 +30,4 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content" />
 
-
-    <ImageView
-        android:id="@+id/iv_titlebar_history"
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:padding="5dp"
-        android:layout_height="match_parent"
-        android:src="@drawable/rb_timeline_press"
-        />
-
 </com.ura.ellen.mvpnews.MyView.TitleBar>

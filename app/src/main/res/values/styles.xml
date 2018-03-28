@@ -8,7 +8,6 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-
     <!-- 主界面底部导航RadioButton配置 -->
     <style name="bottom_tag_style" >
         <!-- Customize your theme here. -->
