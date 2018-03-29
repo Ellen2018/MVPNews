@@ -15,6 +15,7 @@ public class BaseApplication extends Application {
         super.onCreate();
         //配置数据库
         setupDatabase();
+
     }
 
     /**

@@ -16,6 +16,7 @@ import android.webkit.WebViewClient;
 import android.widget.ImageView;
 
 import com.ura.ellen.mvpnews.R;
+import com.ura.ellen.mvpnews.ui.Main.View.MainActivity;
 import com.ura.ellen.mvpnews.utils.ActivityUtils.IntentActivityUtils;
 import com.ura.ellen.mvpnews.utils.SQLiteUtils.NewsSQLiteUtils;
 import com.ura.ellen.mvpnews.utils.ToastUtil;
@@ -44,7 +45,17 @@ public class LookNewsActivity extends SwipeBackActivity {
 
     @OnClick(R.id.iv_looknewsactivity_fenxiang)
     void fenXiang(){
-        ToastUtil.toast(context,"分享");
+
+       share();
+
+    }
+
+
+    private void share(){
+        Intent textIntent = new Intent(Intent.ACTION_SEND);
+        textIntent.setType("text/plain");
+        textIntent.putExtra(Intent.EXTRA_TEXT, title+":"+url);
+        startActivity(Intent.createChooser(textIntent, "分享"));
     }
 
     @OnClick(R.id.iv_looknewsactivity_like)
@@ -176,13 +187,29 @@ public class LookNewsActivity extends SwipeBackActivity {
                 } else if (url.contains(strings[1])) {
 
                     if (url.contains("SinaShare")) {
-                        ToastUtil.toast(context, "进行新浪分享");
+                        
+                        Intent wechatIntent = new Intent(Intent.ACTION_SEND);
+                        wechatIntent.setPackage("com.sina.weibo");
+                        wechatIntent.setType("text/plain");
+                        wechatIntent.putExtra(Intent.EXTRA_TEXT, title+"："+LookNewsActivity.this.url);
+                        startActivity(wechatIntent);
+
                     } else if (url.contains("WeixinShare")) {
-                        ToastUtil.toast(context, "进行微信分享");
+
+                        Intent wechatIntent = new Intent(Intent.ACTION_SEND);
+                        wechatIntent.setPackage("com.tencent.mm");
+                        wechatIntent.setType("text/plain");
+                        wechatIntent.putExtra(Intent.EXTRA_TEXT, title+"："+LookNewsActivity.this.url);
+                        startActivity(wechatIntent);
+
                     } else if (url.contains("WeixinCircleShare")) {
-                        ToastUtil.toast(context, "进行微信朋友圈分享");
+                        Intent wechatIntent = new Intent(Intent.ACTION_SEND);
+                        wechatIntent.setPackage("com.tencent.mm");
+                        wechatIntent.setType("text/plain");
+                        wechatIntent.putExtra(Intent.EXTRA_TEXT, title+"："+LookNewsActivity.this.url);
+                        startActivity(wechatIntent);
                     } else if (url.contains("SystemShare")) {
-                        ToastUtil.toast(context, "进行其他分享");
+                        share();
                     }
 
                     return;
