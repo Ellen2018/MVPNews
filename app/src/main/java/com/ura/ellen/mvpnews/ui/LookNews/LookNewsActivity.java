@@ -187,7 +187,7 @@ public class LookNewsActivity extends SwipeBackActivity {
                 } else if (url.contains(strings[1])) {
 
                     if (url.contains("SinaShare")) {
-                        
+
                         Intent wechatIntent = new Intent(Intent.ACTION_SEND);
                         wechatIntent.setPackage("com.sina.weibo");
                         wechatIntent.setType("text/plain");

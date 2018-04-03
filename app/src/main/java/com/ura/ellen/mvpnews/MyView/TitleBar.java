@@ -1,6 +1,7 @@
 package com.ura.ellen.mvpnews.MyView;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -8,6 +9,8 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import com.ura.ellen.mvpnews.R;
+import com.ura.ellen.mvpnews.ui.Serach.SerachActivity;
+import com.ura.ellen.mvpnews.utils.ActivityUtils.IntentActivityUtils;
 import com.ura.ellen.mvpnews.utils.ToastUtil;
 
 
@@ -57,7 +60,8 @@ public class TitleBar extends LinearLayout implements View.OnClickListener{
 
             case R.id.tv_titlebar_serach:
 
-                ToastUtil.toast(context,"搜索");
+                Intent intent = new Intent(context,SerachActivity.class);
+                context.startActivity(intent);
 
                 break;
 

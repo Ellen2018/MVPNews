@@ -49,4 +49,8 @@ public interface MainView extends BaseView {
 
     void upDateLocalNewsData(List<News.DataBean.ItemListBean> itemListBeans,List<News.DataBean.BigImgBean> bigImgBeans,int p,int what);
 
+    void hideTooBar();
+
+    void showToolBar();
+
 }

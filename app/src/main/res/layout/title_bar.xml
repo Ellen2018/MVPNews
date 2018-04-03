@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:background="#ff3097fd"
     android:gravity="center_vertical"
+    android:animateLayoutChanges="true"
     android:layout_height="55dp">
 
     <ImageView
@@ -23,7 +24,7 @@
         android:drawableLeft="@drawable/tv_search_drawable_selector"
         android:background="@drawable/tv_search_bg_selector"
         android:drawablePadding="8dp"
-        android:text="全网搜索"
+        android:text="天气搜索"
         android:textSize="14sp"
         android:gravity="center"
         android:textColor="@drawable/tv_serach_textcolor_selector"

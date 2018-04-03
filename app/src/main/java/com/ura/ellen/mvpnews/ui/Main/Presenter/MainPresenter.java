@@ -312,4 +312,17 @@ public class MainPresenter extends BasePresenter<MainView,MainMode> {
         mBaseView.cancelYeHua();
     }
 
+
+    public void hideToolBar(){
+
+        mBaseView.hideTooBar();
+
+    }
+
+    public void showToolBar(){
+
+        mBaseView.showToolBar();
+
+    }
+
 }

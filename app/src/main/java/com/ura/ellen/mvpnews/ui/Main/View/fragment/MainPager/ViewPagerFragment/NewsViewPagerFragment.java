@@ -338,6 +338,79 @@ public class NewsViewPagerFragment extends BaseFragment {
 
         });
 
+        lvViewpagerfragmentPager1.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            int mScrollThreshold ;
+            boolean isScroll = false;
+            int times = 0;
+
+
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+                switch (newState){
+
+                    case RecyclerView.SCROLL_STATE_IDLE:
+                        isScroll = false;
+                        break;
+
+                    case RecyclerView.SCROLL_STATE_DRAGGING:
+
+                        isScroll = true;
+
+                        times = 1;
+
+                        break;
+
+                    case RecyclerView.SCROLL_STATE_SETTLING:
+
+                        isScroll = true;
+
+
+                        break;
+
+                }
+            }
+
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                boolean isSignificantDelta = Math.abs(dy) > mScrollThreshold;
+                if (isSignificantDelta) {
+                    if(p == 0) {
+                        if (dy > 0) {
+                            //向上滑动
+
+
+
+
+                             if(isScroll&&times == 1){
+                                 mainPresenter.hideToolBar();
+                                 times = 0;
+                             }
+
+                            //隐藏ToolBar
+                        } else {
+
+
+
+
+                            //向下滑动
+                            if(isScroll&&times == 1){
+                                mainPresenter.showToolBar();
+                                times = 0;
+                            }
+
+
+
+                        }
+                    }
+                }
+            }
+            public void setScrollThreshold(int scrollThreshold) {
+                mScrollThreshold = scrollThreshold;
+            }
+        });
+
 
     }
 

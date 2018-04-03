@@ -166,6 +166,35 @@ public class NewsSQLiteUtils extends SQLiteOpenHelper{
         return  isLike;
     }
 
+
+    public static boolean isUserLookThisNewsData(Context context,String url){
+
+        boolean isLike = false;
+        NewsSQLiteUtils sqlUtil = new NewsSQLiteUtils(context,SQL_NAME,null,1);
+
+        SQLiteDatabase db = sqlUtil.getWritableDatabase();
+
+        Cursor cursor = db.query("newshistory",null,null,null,null,null,null);
+
+        if(cursor.moveToFirst()){
+            do{
+
+
+
+                if(url.equals(cursor.getString(cursor.getColumnIndex("url")))){
+                    isLike = true;
+                    break;
+                }
+
+            }while(cursor.moveToNext());
+        }
+
+
+        db.close();
+
+        return  isLike;
+    }
+
     public static List<String[]> getUserHistoryNewsData(Context context,String tableName){
         List<String[]> lists = getUserLikeNewsData(context,tableName);
         List<String[]> lists1 = new ArrayList<>();

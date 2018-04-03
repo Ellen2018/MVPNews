@@ -18,6 +18,7 @@ import com.ura.ellen.mvpnews.Mode.News;
 import com.ura.ellen.mvpnews.R;
 import com.ura.ellen.mvpnews.utils.ActivityUtils.IntentActivityUtils;
 import com.ura.ellen.mvpnews.utils.ColorUtils;
+import com.ura.ellen.mvpnews.utils.SQLiteUtils.NewsSQLiteUtils;
 import com.ura.ellen.mvpnews.utils.SharedPreferencesUtil;
 import com.ura.ellen.mvpnews.utils.ToastUtil;
 import com.youth.banner.Banner;
@@ -138,7 +139,7 @@ public class NewsAdapter2 extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
                     viewHolder1.tvListviewNewsTitle.setText(lists.get(p).getItemTitle());
                     viewHolder1.time.setText(lists.get(p).getOperate_time());
-                    viewHolder1.llListviewNews.setOnClickListener(new MyOnClick(lists.get(p)));
+                    viewHolder1.llListviewNews.setOnClickListener(new MyOnClick(lists.get(p),viewHolder1));
 
 
 
@@ -158,7 +159,7 @@ public class NewsAdapter2 extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
 
                 viewHolder1.tvSpc.setText("专题:"+lists.get(p).getItemTitle());
-                viewHolder1.rlSpc.setOnClickListener(new MyOnClick(lists.get(p)));
+                viewHolder1.rlSpc.setOnClickListener(new MyOnClick(lists.get(p),viewHolder1));
             }
 
             if(SharedPreferencesUtil.getData
@@ -167,19 +168,35 @@ public class NewsAdapter2 extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                 int color = Color.parseColor(ColorUtils.yeHuaColor);
                 viewHolder1.tvListviewNewsTitle.setTextColor(color);
                 viewHolder1.tvSpc.setTextColor(color);
-
                 viewHolder1.time.setTextColor(color);
                 viewHolder1.rlSpc.setBackgroundResource(R.drawable.touch_bg_yehua);
                 viewHolder1.llListviewNews.setBackgroundResource(R.drawable.touch_bg_yehua);
+
+                if(NewsSQLiteUtils.isUserLookThisNewsData(context,lists.get(p).getDetailUrl())){
+
+                    int color1 = Color.parseColor(ColorUtils.isLook);
+                    viewHolder1.tvListviewNewsTitle.setTextColor(color1);
+                    viewHolder1.tvSpc.setTextColor(color1);
+                    viewHolder1.time.setTextColor(color1);
+
+                }
 
             }else{
                 int color = Color.parseColor(ColorUtils.cancelYeHuaColor);
                 viewHolder1.tvListviewNewsTitle.setTextColor(color);
                 viewHolder1.tvSpc.setTextColor(color);
-
                 viewHolder1.time.setTextColor(color);
                 viewHolder1.rlSpc.setBackgroundResource(R.drawable.touch_bg);
                 viewHolder1.llListviewNews.setBackgroundResource(R.drawable.touch_bg);
+
+                if(NewsSQLiteUtils.isUserLookThisNewsData(context,lists.get(p).getDetailUrl())){
+
+                    int color1 = Color.parseColor(ColorUtils.isLook);
+                    viewHolder1.tvListviewNewsTitle.setTextColor(color1);
+                    viewHolder1.tvSpc.setTextColor(color1);
+                    viewHolder1.time.setTextColor(color1);
+
+                }
             }
 
         }
@@ -317,9 +334,11 @@ public class NewsAdapter2 extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
 
         private News.DataBean.ItemListBean itemImageBean;
+        private Holder holder;
 
-        public MyOnClick(News.DataBean.ItemListBean itemImageBean){
+        public MyOnClick(News.DataBean.ItemListBean itemImageBean,Holder holder){
             this.itemImageBean = itemImageBean;
+            this.holder = holder;
         }
 
         @Override
@@ -332,6 +351,10 @@ public class NewsAdapter2 extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                 ToastUtil.toast(context,"特殊的链接");
             }else {
                 IntentActivityUtils.jumpToLookNewsActivity(activity,context,title,date,imagPath,url);
+                int color1 = Color.parseColor(ColorUtils.isLook);
+                holder.tvListviewNewsTitle.setTextColor(color1);
+                holder.tvSpc.setTextColor(color1);
+                holder.time.setTextColor(color1);
             }
         }
     }

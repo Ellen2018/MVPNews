@@ -218,6 +218,21 @@ public class MainActivity extends BaseMvpActivity<MainPresenter> implements Main
 
     }
 
+    @Override
+    public void hideTooBar() {
+
+        NewsPager newsPager = (NewsPager) mPresenter.mBaseMode.getBasePager();
+        newsPager.hideToolBar();
+
+    }
+
+    @Override
+    public void showToolBar() {
+        NewsPager newsPager = (NewsPager) mPresenter.mBaseMode.getBasePager();
+        newsPager.showToolBar();
+
+    }
+
     class BottomBarOnTabReselectListener implements OnTabReselectListener{
         @Override
         public void onTabReSelected(int tabId) {

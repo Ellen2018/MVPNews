@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MVPNews</string>
+    <string name="app_name">仿央新闻</string>
 
     <string name="hello">Hello World, XListViewActivity!</string>
     <string name="xlistview_header_hint_normal">下拉刷新</string>
